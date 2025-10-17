@@ -36,7 +36,6 @@ ai-chat-app/
 │   └── components/
 │       ├── ChatInterface.jsx
 ├── public/
-│   └── favicon.ico
 ├── next.config.js
 ├── package.json
 └── README.md
