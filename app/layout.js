@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Michroma } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -10,6 +10,13 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
+const michroma = Michroma({
+  subsets: ['latin'],
+  weight: '400', // Regular weight
+  display: 'swap',
+  variable: '--font-michroma',
+})
 
 export const metadata = {
   title: "Ai Chat",
@@ -28,7 +35,7 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${michroma.variable} ${geistMono.variable} antialiased`}
       >
         {children}
       </body>

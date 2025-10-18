@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from 'react';
 import { useChat } from '../hooks/useChat';
 import Sidebar from './Sidebar';
 
+
 export default function ChatInterface() {
   const [input, setInput] = useState('');
   const [isRotated, setIsRotated] = useState(false);
@@ -60,7 +61,7 @@ export default function ChatInterface() {
       <div className="flex-1 flex flex-col">
         {/* Chat Header */}
         <div className={`border-b border-gray-200 p-4 bg-gray-800 flex justify-between items-center transition-all duration-300 ease-in-out ${isRotated ? 'h-4' : 'h-16'}`}>
-          <h1 className="text-xl font-semibold text-gray-300">
+          <h1 className={`text-xl font-semibold text-gray-300 font-michroma`}>
             {currentChatId ? 'Chat With Z-Ai' : 'New Chat'}
           </h1>
           <div className="flex items-center gap-4">
@@ -78,7 +79,7 @@ export default function ChatInterface() {
         {/* Messages Container */}
         <div className={`flex-1 overflow-y-auto p-4 bg-gray-500 transition-all duration-400 ease-in-out ${isRotated ? 'h-full' : 'h-72'}`}>
           {messages.length === 0 ? (
-            <div className="text-center text-gray-200 py-8">
+            <div className="text-center text-gray-200 py-8 font-michroma">
               <div className="text-4xl mb-2">🤖</div>
               <p>Start a new conversation with Z-AI!</p>
               <p className="text-sm mt-2">Type your first message below.</p>
@@ -92,7 +93,7 @@ export default function ChatInterface() {
                     ? 'bg-blue-100 ml-8'
                     : message.role === 'error'
                     ? 'bg-red-100'
-                    : 'bg-purple-200 mr-8 border-2 animated-border'
+                    : `bg-purple-200 mr-8 border-2 animated-border font-michroma`
                 }`}
               >
                 <div className="flex justify-between items-center mb-2">
@@ -194,7 +195,7 @@ export default function ChatInterface() {
               type="submit"
               disabled={!input.trim() || isLoading}
               onClick={handleSendMessage}
-              className={`px-6 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors self-end ${isRotated ? 'py-0' : 'py-3'}`}
+              className={`px-6 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors self-end font-michroma ${isRotated ? 'py-0' : 'py-3'}`}
             >
               {isLoading ? (
                 <div className="flex items-center">

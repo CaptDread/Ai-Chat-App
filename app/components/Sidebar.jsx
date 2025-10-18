@@ -18,11 +18,11 @@ export default function Sidebar({
       <div className="p-3 border-b border-gray-200">
         <div className={`flex items-center ${isCollapsed ? 'justify-center' : 'justify-between'}`}>
           {!isCollapsed && (
-            <h2 className="text-lg font-semibold text-gray-800">Chats</h2>
+            <h2 className="text-lg font-semibold text-gray-800 font-michroma">Chats</h2>
           )}
           <button
             onClick={() => setIsCollapsed(!isCollapsed)}
-            className="p-1 rounded hover:bg-gray-200 transition-colors text-2xl"
+            className="p-1 rounded hover:bg-gray-200 transition-colors text-2xl font-michroma"
             title={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
           >
             {isCollapsed ? '=' : 'x'}
@@ -32,7 +32,7 @@ export default function Sidebar({
         {!isCollapsed && (
           <button
             onClick={onNewChat}
-            className="w-full mt-3 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors flex items-center justify-center gap-2"
+            className="w-full mt-3 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors flex items-center justify-center gap-2 font-michroma"
           >
             <span>+</span>
             <span>New Chat</span>
