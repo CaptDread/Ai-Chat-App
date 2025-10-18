@@ -36,7 +36,6 @@ ai-chat-app/
 │   └── components/
 │       ├── ChatInterface.jsx
 ├── public/
-│   └── favicon.ico
 ├── next.config.js
 ├── package.json
 └── README.md
@@ -58,6 +57,89 @@ npm install
 3. Start the development server:
 ```bash
 npm run dev
+```
+
+4. Open your browser and navigate to `http://localhost:3000`
+
+## Usage
+
+1. Launch the application
+2. Start typing your messages in the input field
+3. Press Enter or click the send button to chat with the AI
+4. The AI will respond using the GLM-4.5-Air model
+5. Continue the conversation naturally
+
+## API Routes
+
+The app includes API endpoints in `/app/api/chat/route.js` for handling AI conversations:
+
+```javascript
+// Example API route structure
+export async function POST(request) {
+  const { message } = await request.json();
+  // AI integration logic here
+  return Response.json({ response: aiResponse });
+}
+```
+
+## Configuration
+
+The app is pre-configured to use the free `z-ai/glm-4.5-air:free` model. No additional API keys or configuration required.
+
+### Environment Variables (Optional)
+
+Create a `.env.local` file for custom configurations:
+
+```env
+# Optional: Custom model configuration
+AI_MODEL=z-ai/glm-4.5-air:free
+```
+
+## Development
+
+- Run development server: `npm run dev`
+- Build for production: `npm run build`
+- Start production server: `npm start`
+- Lint code: `npm run lint`
+
+## Key App Router Features Used
+
+- **Server Components**: For better performance and SEO
+- **API Routes**: Built-in API endpoints in the app directory
+- **Layouts**: Consistent layout across pages
+- **Loading States**: Built-in loading UI handling
+- **Error Boundaries**: Error handling for better UX
+
+## Contributing
+
+We welcome contributions! Please feel free to submit pull requests or open issues for bugs and feature requests.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Model Information
+
+This application uses **z-ai/glm-4.5-air:free**, a powerful and free AI language model that provides intelligent responses for various conversational needs.
+
+## Support
+
+If you encounter any issues or have questions, please open an issue in the GitHub repository.
+
+## Deployment
+
+The app can be deployed on Vercel, Netlify, or any Node.js hosting platform:
+
+```bash
+# Build and deploy
+npm run build
+```
 ```
 
 4. Open your browser and navigate to `http://localhost:3000`
