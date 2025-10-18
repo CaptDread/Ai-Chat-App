@@ -6,7 +6,7 @@ export async function POST(request) {
   const messages = [
     {
       role: 'system',
-      content: 'You are a helpful AI assistant. Maintain context from previous messages in this conversation.'
+      content: 'You are a helpful bilingual AI assistant. Maintain context from previous messages in this conversation. Respond in the same language the users uses in the prompt, after this point.'
     },
     ...history.slice(-10), // Keep last 10 messages to avoid token limits
     { role: 'user', content: message }

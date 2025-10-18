@@ -1,7 +1,5 @@
 @import "tailwindcss";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
 
 :root {
   --background: #ffffff;
@@ -26,4 +24,102 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Animated Gradient Border */
+.animated-border {
+  position: relative;
+  background: linear-gradient(lightGray, lightGray) padding-box,
+              linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57, #ff9ff3, #54a0ff) border-box;
+  border: 2px solid transparent;
+  background-clip: padding-box, border-box;
+  animation: borderAnimation 3s ease infinite;
+  background-size: 200% 200%;
+}
+
+/* Animated Rainbow Border */
+.animated-rainbow-border {
+  position: relative;
+  border: 2px solid transparent;
+  background: linear-gradient(white, white) padding-box,
+              linear-gradient(90deg, #ff0000, #ff8000, #ffff00, #00ff00, #00ffff, #0000ff, #8000ff, #ff0080) border-box;
+  animation: rainbowBorder 2s linear infinite;
+  background-size: 300% 300%;
+}
+
+/* Pulsing Glow Border */
+.glow-border {
+  position: relative;
+  border: 2px solid transparent;
+  background: linear-gradient(white, white) padding-box,
+              linear-gradient(45deg, #667eea, #764ba2) border-box;
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+/* Neon Border */
+.neon-border {
+  position: relative;
+  border: 2px solid transparent;
+  background: linear-gradient(white, white) padding-box,
+              linear-gradient(45deg, #00ffff, #ff00ff) border-box;
+  animation: neonGlow 1.5s ease-in-out infinite alternate;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+/* Fire Border */
+.fire-border {
+  position: relative;
+  border: 2px solid transparent;
+  background: linear-gradient(white, white) padding-box,
+              linear-gradient(45deg, #ff8c00, #ff0080, #ff8c00) border-box;
+  animation: fireAnimation 2s ease-in-out infinite;
+  background-size: 200% 200%;
+}
+
+/* Animations */
+@keyframes borderAnimation {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes rainbowBorder {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+  }
+  50% {
+    opacity: 0.8;
+    box-shadow: 0 0 30px rgba(102, 126, 234, 0.8);
+  }
+}
+
+@keyframes neonGlow {
+  from {
+    box-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff;
+  }
+  to {
+    box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+  }
+}
+
+@keyframes fireAnimation {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
