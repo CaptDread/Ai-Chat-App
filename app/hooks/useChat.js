@@ -4,6 +4,7 @@ export function useChat() {
   const [messages, setMessages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [conversationHistory, setConversationHistory] = useState([]);
 
   const sendMessage = useCallback(async (message) => {
     setIsLoading(true);
@@ -11,7 +12,14 @@ export function useChat() {
 
     // Add user message
     const userMessage = { role: 'user', content: message, timestamp: new Date() };
-    setMessages(prev => [...prev, userMessage]);
+    const updatedMessages = [...messages, userMessage];
+    setMessages(updatedMessages);
+
+    // Build conversation history for API
+    const historyForApi = conversationHistory.map(msg => ({
+      role: msg.role,
+      content: msg.content
+    }));
 
     try {
       const response = await fetch('/api/chat', {
@@ -19,7 +27,10 @@ export function useChat() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ message }),
+        body: JSON.stringify({ 
+          message,
+          history: historyForApi
+        }),
       });
 
       const data = await response.json();
@@ -33,9 +44,20 @@ export function useChat() {
         role: 'assistant', 
         content: data.response,
         timestamp: new Date(),
-        model: data.model // Include model info if available
+        model: data.model
       };
-      setMessages(prev => [...prev, aiMessage]);
+      
+      const finalMessages = [...updatedMessages, aiMessage];
+      setMessages(finalMessages);
+      
+      // Update conversation history (limit to last 20 messages to avoid token limits)
+      const newHistory = [
+        ...conversationHistory,
+        { role: 'user', content: message },
+        { role: 'assistant', content: data.response }
+      ].slice(-20); // Keep last 10 exchanges (20 messages)
+      
+      setConversationHistory(newHistory);
       
       return data.response;
     } catch (err) {
@@ -54,10 +76,11 @@ export function useChat() {
     } finally {
       setIsLoading(false);
     }
-  }, []);
+  }, [messages, conversationHistory]); // Add dependencies
 
   const clearChat = useCallback(() => {
     setMessages([]);
+    setConversationHistory([]);
     setError(null);
   }, []);
 
@@ -67,5 +90,6 @@ export function useChat() {
     isLoading,
     error,
     clearChat,
+    conversationHistory, // Optional: expose if needed
   };
 }
