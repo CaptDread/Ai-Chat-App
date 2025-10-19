@@ -47,7 +47,7 @@ export default function ChatInterface() {
   };
 
   return (
-    <div className="h-screen flex bg-gray-800">
+    <div className="h-screen fixed flex bg-gray-800">
       {/* Sidebar */}
       <Sidebar
         chats={chats}
