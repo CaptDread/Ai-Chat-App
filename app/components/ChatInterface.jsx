@@ -60,7 +60,7 @@ export default function ChatInterface() {
       {/* Main Chat Area */}
       <div className="flex-1 flex flex-col">
         {/* Chat Header */}
-        <div className={`border-b border-gray-200 p-4 bg-gray-800 flex justify-between items-center transition-all duration-300 ease-in-out text-xl sm:text-2xl ${isRotated ? 'h-4' : 'h-16'}`}>
+        <div className={`border-b border-gray-200 p-4 bg-gray-800 flex justify-between items-center transition-all duration-300 ease-in-out text-base sm:text-2xl ${isRotated ? 'h-4' : 'h-16'}`}>
           <h1 className={`text-xl font-semibold text-gray-300 font-michroma`}>
             {currentChatId ? 'Chat With Z-Ai' : 'New Chat'}
           </h1>
@@ -80,7 +80,7 @@ export default function ChatInterface() {
         <div className={`flex-1 overflow-y-auto p-4 bg-gray-500 transition-all duration-400 ease-in-out ${isRotated ? 'h-full' : 'h-72'}`}>
           {messages.length === 0 ? (
             <div className="text-center text-gray-200 py-8 font-michroma">
-              <div className="text-4xl mb-2">🤖</div>
+              <div className="text-2xl sm:text-4xl mb-2">🤖</div>
               <p>Start a new conversation with Z-AI!</p>
               <p className="text-sm mt-2">Type your first message below.</p>
             </div>
@@ -97,7 +97,7 @@ export default function ChatInterface() {
                 }`}
               >
                 <div className="flex justify-between items-center mb-2">
-                  <div className="font-semibold text-sm text-gray-400">
+                  <div className="font-semibold text-xs sm:text-sm text-gray-400">
                     {message.role === 'user' 
                       ? 'You' 
                       : message.role === 'error'
@@ -112,7 +112,7 @@ export default function ChatInterface() {
                   )}
                 </div>
                 
-                <div className="text-gray-700 whitespace-pre-wrap">
+                <div className="text-gray-700 whitespace-pre-wrap text-sm sm:text-base">
                   {message.content}
                 </div>
                 
