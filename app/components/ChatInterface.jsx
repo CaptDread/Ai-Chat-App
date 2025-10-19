@@ -181,13 +181,13 @@ export default function ChatInterface() {
 
         {/* Input Area */}
         <div className={`border-t border-gray-200 px-4 bg-gray-800 transition-all duration-300 ease-in-out ${isRotated ? 'h-0 opacity-0 py-0' : 'py-4 h-32 opacity-100'}`}>
-          <div className="flex gap-2">
+          <div className="gap-2 grid grid-cols-6">
             <textarea
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyPress={handleKeyPress}
               placeholder="Type your message here... (Press Enter to send, Shift+Enter for new line)"
-              className={`flex-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none transition-all duration-200 ease-in-out text-base sm:text-sm ${isRotated ? 'h-0' : 'h-24'}`}
+              className={`flex-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none transition-all duration-200 ease-in-out grid-span-5 text-base sm:text-sm ${isRotated ? 'h-0' : 'h-24'}`}
               disabled={isLoading}
               rows={3}
             />
@@ -195,7 +195,7 @@ export default function ChatInterface() {
               type="submit"
               disabled={!input.trim() || isLoading}
               onClick={handleSendMessage}
-              className={`px-6 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors self-end font-michroma ${isRotated ? 'py-0' : 'py-3'}`}
+              className={`px-6 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors self-end font-michroma grid-span-1 ${isRotated ? 'py-0' : 'py-3'}`}
             >
               {isLoading ? (
                 <div className="flex items-center">
