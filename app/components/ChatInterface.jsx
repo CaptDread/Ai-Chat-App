@@ -60,7 +60,7 @@ export default function ChatInterface() {
       {/* Main Chat Area */}
       <div className="flex-1 flex flex-col">
         {/* Chat Header */}
-        <div className={`border-b border-gray-200 p-4 bg-gray-800 flex justify-between items-center transition-all duration-300 ease-in-out ${isRotated ? 'h-4' : 'h-16'}`}>
+        <div className={`border-b border-gray-200 p-4 bg-gray-800 flex justify-between items-center transition-all duration-300 ease-in-out text-xl sm:text-2xl ${isRotated ? 'h-4' : 'h-16'}`}>
           <h1 className={`text-xl font-semibold text-gray-300 font-michroma`}>
             {currentChatId ? 'Chat With Z-Ai' : 'New Chat'}
           </h1>
