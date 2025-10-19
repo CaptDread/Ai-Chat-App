@@ -165,10 +165,10 @@ export default function ChatInterface() {
         <div className='relative'>
           <button
             onClick={handleWindowSize}
-            className="absolute right-5 justify-self-end self-end px-2 py-1 justify-self-center self-center bg-gray-500 opacity-20 text-white rounded-lg text-sm hover:opacity-50 transition-opacity flex flex-col justify-center"
+            className="absolute right-5 justify-self-end self-end px-2 py-1 bg-gray-600 opacity-20 rounded-lg text-base text-gray-300 hover:opacity-50 transition-opacity flex flex-col justify-center"
           >
-            <p className={`expand_btn-top-arrow transition-transform duration-300 ease-in-out ${isRotated ? 'rotate-180' : ''}`}>🡤</p>
-            <p className={`expand_btn-top-arrow transition-transform duration-300 ease-in-out ${isRotated ? 'rotate-180' : ''}`}>🡦</p>
+            <p className={`expand_btn-top-arrow transition-transform duration-500 ease-in-out ${isRotated ? 'rotate-180' : '-rotate-45'}`}>&#11014;</p>
+            <p className={`expand_btn-top-arrow transition-transform duration-500 ease-in-out ${isRotated ? 'rotate-180' : '-rotate-45'}`}>&#11015;</p>
           </button>
         </div>
 
