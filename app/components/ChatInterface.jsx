@@ -47,7 +47,7 @@ export default function ChatInterface() {
   };
 
   return (
-    <div className="h-screen fixed flex bg-gray-800">
+    <div className="h-screen fixed flex bg-gray-800 w-full">
       {/* Sidebar */}
       <Sidebar
         chats={chats}
@@ -58,7 +58,7 @@ export default function ChatInterface() {
       />
 
       {/* Main Chat Area */}
-      <div className="flex-1 flex flex-col">
+      <div className="flex-1 flex flex-col w-full">
         {/* Chat Header */}
         <div className={`border-b border-gray-200 p-4 bg-gray-800 flex justify-between items-center transition-all duration-300 ease-in-out text-base sm:text-2xl ${isRotated ? 'h-4' : 'h-16'}`}>
           <h1 className={`text-xl font-semibold text-gray-300 font-michroma`}>
@@ -77,7 +77,7 @@ export default function ChatInterface() {
         </div>
 
         {/* Messages Container */}
-        <div className={`flex-1 overflow-y-auto p-4 bg-gray-500 transition-all duration-400 ease-in-out ${isRotated ? 'h-full' : 'h-72'}`}>
+        <div className={`flex-1 overflow-y-auto p-4 bg-gray-500 transition-all duration-400 ease-in-out${isRotated ? 'h-full' : 'h-72'}`}>
           {messages.length === 0 ? (
             <div className="text-center text-gray-200 py-8 font-michroma">
               <div className="text-2xl sm:text-4xl mb-2">🤖</div>
@@ -180,7 +180,7 @@ export default function ChatInterface() {
         )}
 
         {/* Input Area */}
-        <div className={`border-t border-gray-200 px-4 bg-gray-800 transition-all duration-300 ease-in-out ${isRotated ? 'h-0 opacity-0 py-0' : 'py-4 h-32 opacity-100'}`}>
+        <div className={`border-t border-gray-200 px-4 bg-gray-800 transition-all duration-300 ease-in-out w-full ${isRotated ? 'h-0 opacity-0 py-0' : 'py-4 h-32 opacity-100'}`}>
           <div className="gap-2 grid grid-cols-7">
             <textarea
               value={input}
